@@ -2,7 +2,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
 import java.net.MalformedURLException;
@@ -13,7 +15,7 @@ public class TestBase {
     private AppiumDriverLocalService appiumService;
     private static AndroidDriver androidDriver;
 
-    @BeforeTest
+    @BeforeClass
     protected void buildAppiumService() {
         //Build the Appium service
         serviceBuilder = new AppiumServiceBuilder()
@@ -21,14 +23,14 @@ public class TestBase {
                 .usingPort(4723);
     }
 
-    @BeforeTest(dependsOnMethods = "buildAppiumService")
+    @BeforeClass(dependsOnMethods = "buildAppiumService")
     protected void startAppiumService() {
         //Start the server with the builder
         appiumService = AppiumDriverLocalService.buildService(serviceBuilder);
         appiumService.start();
     }
 
-    @BeforeTest(dependsOnMethods = "startAppiumService")
+    @BeforeClass(dependsOnMethods = "startAppiumService")
     protected void initDriver() {
         //Initialize the driver and launch the app
         try {
@@ -41,13 +43,13 @@ public class TestBase {
         }
     }
 
-    @AfterTest
+    @AfterClass
     protected void tearDownDriver() {
         //Stop the server with the builder
         androidDriver.quit();
     }
 
-    @AfterTest(dependsOnMethods = "tearDownDriver")
+    @AfterClass(dependsOnMethods = "tearDownDriver")
     protected void stopAppiumService() {
         //Stop the server with the builder
         appiumService.stop();
