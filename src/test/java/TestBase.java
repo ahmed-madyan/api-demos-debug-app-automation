@@ -2,8 +2,8 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import io.appium.java_client.service.local.flags.GeneralServerFlag;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,8 +18,7 @@ public class TestBase {
         //Build the Appium service
         serviceBuilder = new AppiumServiceBuilder()
                 .withIPAddress("127.0.0.1")
-                .usingPort(4723)
-                .withArgument(GeneralServerFlag.SESSION_OVERRIDE);
+                .usingPort(4723);
     }
 
     @BeforeTest(dependsOnMethods = "buildAppiumService")
