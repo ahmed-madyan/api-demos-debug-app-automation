@@ -1,3 +1,4 @@
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
@@ -59,7 +60,7 @@ public class Test_AppiumBasics {
     }
 
     @Test
-    public void appiumTest() throws MalformedURLException {
-
+    public void appiumTest() {
+        getDriver().findElement(AppiumBy.accessibilityId(""));
     }
 }
