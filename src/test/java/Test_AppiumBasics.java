@@ -60,7 +60,8 @@ public class Test_AppiumBasics {
     }
 
     @Test
-    public void appiumTest() {
-        getDriver().findElement(AppiumBy.accessibilityId(""));
+    public void openPreference() throws InterruptedException {
+        getDriver().findElement(AppiumBy.accessibilityId("Preference")).click();
+        Thread.sleep(5000);
     }
 }
