@@ -32,9 +32,6 @@ public class Test_AppiumBasics {
     @BeforeTest(dependsOnMethods = "startAppiumService")
     private void initDriver() {
         //Initialize the driver and launch the app
-//        UiAutomator2Options options = new UiAutomator2Options();
-//        options.setDeviceName("Pixel 2 XL");
-//        options.setApp("C:\\Users\\_VOIS\\Documents\\GitHub\\rahul-appium-automation\\src\\test\\resources\\ApiDemos-debug.apk");
         try {
             androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723"),
                     new UiAutomator2Options()
