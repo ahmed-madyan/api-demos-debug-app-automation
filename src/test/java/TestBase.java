@@ -14,7 +14,7 @@ public class TestBase {
     private static AndroidDriver androidDriver;
 
     @BeforeTest
-    private void buildAppiumService() {
+    protected void buildAppiumService() {
         //Build the Appium service
         serviceBuilder = new AppiumServiceBuilder()
                 .withIPAddress("127.0.0.1")
@@ -23,18 +23,15 @@ public class TestBase {
     }
 
     @BeforeTest(dependsOnMethods = "buildAppiumService")
-    private void startAppiumService() {
+    protected void startAppiumService() {
         //Start the server with the builder
         appiumService = AppiumDriverLocalService.buildService(serviceBuilder);
         appiumService.start();
     }
 
     @BeforeTest(dependsOnMethods = "startAppiumService")
-    private void initDriver() {
+    protected void initDriver() {
         //Initialize the driver and launch the app
-//        UiAutomator2Options options = new UiAutomator2Options();
-//        options.setDeviceName("Pixel 2 XL");
-//        options.setApp("C:\\Users\\_VOIS\\Documents\\GitHub\\rahul-appium-automation\\src\\test\\resources\\ApiDemos-debug.apk");
         try {
             androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723"),
                     new UiAutomator2Options()
@@ -46,18 +43,18 @@ public class TestBase {
     }
 
     @AfterTest
-    private void quitDriver() {
+    protected void tearDownDriver() {
         //Stop the server with the builder
         androidDriver.quit();
     }
 
-    @AfterTest(dependsOnMethods = "quitDriver")
-    private void stopAppiumService() {
+    @AfterTest(dependsOnMethods = "tearDownDriver")
+    protected void stopAppiumService() {
         //Stop the server with the builder
         appiumService.stop();
     }
 
-    public static AndroidDriver getDriver() {
+    protected static AndroidDriver getDriver() {
         return androidDriver;
     }
 }
