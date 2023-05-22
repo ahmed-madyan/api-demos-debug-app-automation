@@ -9,19 +9,20 @@ public class Test_LongPress extends TestBase {
     private final By customAdapter = AppiumBy.accessibilityId("1. Custom Adapter");
     private final By wifiCheckBox = AppiumBy.xpath("//android.widget.CheckBox[@resource-id='android:id/checkbox']");
     private final By peopleNames = AppiumBy.xpath("//android.widget.TextView[@text='People Names']");
-    private final By wifiSettingsName = AppiumBy.id("android:id/edit");
+    private final By widgetListView = AppiumBy.className("android.widget.ListView");
     private final By wifiSettingsOkay = AppiumBy.id("android:id/button1");
 
     @Test
     public void test_LongPress() throws InterruptedException {
         Assert.assertTrue(getDriver().findElement(views).isDisplayed());
-        getDriver().findElement(views).click();
+        MobileGestures.click(getDriver(), views);
         Assert.assertTrue(getDriver().findElement(expandableLists).isDisplayed());
-        getDriver().findElement(expandableLists).click();
+        MobileGestures.click(getDriver(), expandableLists);
         Assert.assertTrue(getDriver().findElement(customAdapter).isDisplayed());
-        getDriver().findElement(customAdapter).click();
-        MobileGestures.longClickGesture(getDriver(), peopleNames, 2000);
-        Thread.sleep(10000);
+        MobileGestures.click(getDriver(), customAdapter);
+        MobileGestures.longClick(getDriver(), peopleNames, 2000);
+        Assert.assertTrue(getDriver().findElement(widgetListView).isDisplayed());
+        Thread.sleep(5000);
 
 //        Assert.assertEquals(getDriver().findElement(wifiCheckBox).getAttribute("checked"), "false");
 //        Assert.assertEquals(getDriver().findElement(wifiSettings).getAttribute("enabled"), "false");

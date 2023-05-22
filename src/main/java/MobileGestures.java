@@ -5,10 +5,22 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 public class MobileGestures {
-    public static void longClickGesture(AndroidDriver driver, By elementLocated,int duration){
+    public static void longClick(AndroidDriver driver, By elementLocated, int duration){
         ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
                 "duration", duration
+        ));
+    }
+
+    public static void doubleClick(AndroidDriver driver, By elementLocated){
+        ((JavascriptExecutor) driver).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
+        ));
+    }
+
+    public static void click(AndroidDriver driver, By elementLocated){
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
         ));
     }
 }
