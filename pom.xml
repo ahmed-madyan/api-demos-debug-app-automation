@@ -17,6 +17,7 @@
         <appium.version>8.5.0</appium.version>
         <selenium.version>4.9.1</selenium.version>
         <testng.version>7.7.1</testng.version>
+        <browserstack-java-sdk.version>1.5.2</browserstack-java-sdk.version>
         <slf4j.version>2.0.7</slf4j.version>
         <slf4j-api.version>${slf4j.version}</slf4j-api.version>
         <slf4j-simple.version>${slf4j.version}</slf4j-simple.version>
@@ -47,6 +48,11 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j-simple.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-java-sdk</artifactId>
+            <version>${browserstack-java-sdk.version}</version>
         </dependency>
     </dependencies>
 </project>
