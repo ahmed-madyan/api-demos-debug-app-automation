@@ -30,23 +30,23 @@ public class MobileGestures {
         }
     }
 
-    public static void click(AndroidDriver driver, By elementLocated) {
+    public static void click(By elementLocated) {
         try {
             Waits.elementToBeClickable(elementLocated);
-            driver.executeScript("mobile: clickGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
+            DriverManager.getDriverInstance().executeScript("mobile: clickGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) DriverManager.getDriverInstance().findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void swipe(AndroidDriver driver, By elementLocated, String direction) {
+    public static void swipe(By elementLocated, Direction direction) {
         try {
-            Waits.visibilityOfElementLocated(elementLocated);
-            ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
-                    "direction", direction,
+//            Waits.visibilityOfElementLocated(elementLocated);
+            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) DriverManager.getDriverInstance().findElement(elementLocated)).getId(),
+                    "direction", direction.toString(),
                     "percent", 0.75
             ));
         } catch (Exception e) {
@@ -54,18 +54,25 @@ public class MobileGestures {
         }
     }
 
-    public static boolean scroll(AndroidDriver driver, By elementLocated, String direction) {
+    public static boolean scroll(By elementLocated, Direction direction) {
         boolean canScrollMore = false;
         try {
-            Waits.visibilityOfElementLocated(elementLocated);
-            canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
-                    "direction", direction,
+//            Waits.visibilityOfElementLocated(elementLocated);
+            canScrollMore = (Boolean) ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
+                    "direction", direction.toString(),
                     "percent", 3.0
             ));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return canScrollMore;
+    }
+
+    enum Direction {
+        UP,
+        DOWN,
+        RIGHT,
+        LEFT
     }
 }
