@@ -17,11 +17,11 @@ public class Test_LongPress extends TestBase {
 
 
         Assert.assertTrue(DriverManager.getDriverInstance().findElement(views).isDisplayed());
-        MobileGestures.click(DriverManager.getDriverInstance(), views);
+        MobileGestures.click(views);
         Assert.assertTrue(DriverManager.getDriverInstance().findElement(expandableLists).isDisplayed());
-        MobileGestures.click(DriverManager.getDriverInstance(), expandableLists);
+        MobileGestures.click(expandableLists);
         Assert.assertTrue(DriverManager.getDriverInstance().findElement(customAdapter).isDisplayed());
-        MobileGestures.click(DriverManager.getDriverInstance(), customAdapter);
+        MobileGestures.click(customAdapter);
         MobileGestures.longClick(DriverManager.getDriverInstance(), peopleNames, 2000);
         Assert.assertTrue(DriverManager.getDriverInstance().findElement(widgetListView).isDisplayed());
         Thread.sleep(5000);
