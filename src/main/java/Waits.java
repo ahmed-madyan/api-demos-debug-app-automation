@@ -11,7 +11,6 @@ public class Waits {
     public static void visibilityOfElementLocated(By elementLocated) {
         try {
             webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(elementLocated));
-
         } catch (Exception e) {
             e.printStackTrace();
         }
