@@ -8,37 +8,64 @@ public class MobileGestures {
 
 
     public static void longClick(AndroidDriver driver, By elementLocated, int duration) {
-        ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
-                "duration", duration
-        ));
+        try {
+            Waits.elementToBeClickable(elementLocated);
+            ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
+                    "duration", duration
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void doubleClick(AndroidDriver driver, By elementLocated) {
-        ((JavascriptExecutor) driver).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
-        ));
+        try {
+            Waits.elementToBeClickable(elementLocated);
+            ((JavascriptExecutor) driver).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void click(AndroidDriver driver, By elementLocated) {
-        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
-        ));
+        try {
+            Waits.elementToBeClickable(elementLocated);
+            driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void swipe(AndroidDriver driver, By elementLocated, String direction) {
-        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
-                "direction", direction,
-                "percent", 0.75
-        ));
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
+                    "direction", direction,
+                    "percent", 0.75
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static boolean scroll(AndroidDriver driver, By elementLocated, String direction) {
-        return (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
-                "direction", direction,
-                "percent", 3.0
-        ));
+        boolean canScrollMore = false;
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
+                    "direction", direction,
+                    "percent", 3.0
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return canScrollMore;
     }
 }
