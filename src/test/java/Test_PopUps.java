@@ -14,17 +14,17 @@ public class Test_PopUps extends TestBase {
 
     @Test
     public void test_PopUps() {
-        MobileGestures.click(getDriver(), preference);
-        Assert.assertTrue(getDriver().findElement(preferenceFromXML).isDisplayed());
-        MobileGestures.click(getDriver(), preferenceDependencies);
-        Assert.assertEquals(getDriver().findElement(wifiCheckBox).getAttribute("checked"), "false");
-        Assert.assertEquals(getDriver().findElement(wifiSettings).getAttribute("enabled"), "false");
-        MobileGestures.click(getDriver(), wifiCheckBox);
-        Assert.assertEquals(getDriver().findElement(wifiCheckBox).getAttribute("checked"), "true");
-        Assert.assertEquals(getDriver().findElement(wifiSettings).getAttribute("enabled"), "true");
-        MobileGestures.click(getDriver(), wifiSettings);
-        getDriver().findElement(wifiSettingsName).sendKeys("Ahmed");
-        Assert.assertEquals(getDriver().findElement(wifiSettingsName).getText(), "Ahmed");
-        MobileGestures.click(getDriver(), wifiSettingsOkay);
+        MobileGestures.click(DriverManager.getDriverInstance(), preference);
+        Assert.assertTrue(DriverManager.getDriverInstance().findElement(preferenceFromXML).isDisplayed());
+        MobileGestures.click(DriverManager.getDriverInstance(), preferenceDependencies);
+        Assert.assertEquals(DriverManager.getDriverInstance().findElement(wifiCheckBox).getAttribute("checked"), "false");
+        Assert.assertEquals(DriverManager.getDriverInstance().findElement(wifiSettings).getAttribute("enabled"), "false");
+        MobileGestures.click(DriverManager.getDriverInstance(), wifiCheckBox);
+        Assert.assertEquals(DriverManager.getDriverInstance().findElement(wifiCheckBox).getAttribute("checked"), "true");
+        Assert.assertEquals(DriverManager.getDriverInstance().findElement(wifiSettings).getAttribute("enabled"), "true");
+        MobileGestures.click(DriverManager.getDriverInstance(), wifiSettings);
+        DriverManager.getDriverInstance().findElement(wifiSettingsName).sendKeys("Ahmed");
+        Assert.assertEquals(DriverManager.getDriverInstance().findElement(wifiSettingsName).getText(), "Ahmed");
+        MobileGestures.click(DriverManager.getDriverInstance(), wifiSettingsOkay);
     }
 }
