@@ -16,19 +16,19 @@ public class Test_SwipeScroll extends TestBase {
     public void test_LongPress() throws InterruptedException {
 
 
-        Assert.assertTrue(getDriver().findElement(views).isDisplayed());
-        MobileGestures.click(getDriver(), views);
-        Assert.assertTrue(getDriver().findElement(webView).isDisplayed());
-        MobileGestures.click(getDriver(), webView);
-        Assert.assertTrue(getDriver().findElement(customAdapter).isDisplayed());
-        MobileGestures.click(getDriver(), customAdapter);
-        MobileGestures.longClick(getDriver(), peopleNames, 2000);
-        Assert.assertTrue(getDriver().findElement(widgetListView).isDisplayed());
+        Assert.assertTrue(DriverManager.getDriverInstance().findElement(views).isDisplayed());
+        MobileGestures.click(DriverManager.getDriverInstance(), views);
+        Assert.assertTrue(DriverManager.getDriverInstance().findElement(webView).isDisplayed());
+        MobileGestures.click(DriverManager.getDriverInstance(), webView);
+        Assert.assertTrue(DriverManager.getDriverInstance().findElement(customAdapter).isDisplayed());
+        MobileGestures.click(DriverManager.getDriverInstance(), customAdapter);
+        MobileGestures.longClick(DriverManager.getDriverInstance(), peopleNames, 2000);
+        Assert.assertTrue(DriverManager.getDriverInstance().findElement(widgetListView).isDisplayed());
         Thread.sleep(5000);
-        System.out.println(getDriver().findElements(widgetListTitle).get(0).getText() + "\n" + getDriver().findElements(widgetListContent).get(1).getText());
+        System.out.println(DriverManager.getDriverInstance().findElements(widgetListTitle).get(0).getText() + "\n" + DriverManager.getDriverInstance().findElements(widgetListContent).get(1).getText());
 
-//        Assert.assertEquals(getDriver().findElement(widgetListTitle).getText(), "Sample menu");
-//        Assert.assertEquals(getDriver().findElement(widgetListContent).getText(), "Sample action");
+//        Assert.assertEquals(DriverManager.getDriverInstance().findElement(widgetListTitle).getText(), "Sample menu");
+//        Assert.assertEquals(DriverManager.getDriverInstance().findElement(widgetListContent).getText(), "Sample action");
 //        Thread.sleep(5000);
     }
 }
