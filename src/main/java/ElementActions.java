@@ -13,6 +13,23 @@ public class ElementActions {
         }
         return element;
     }
+
+    public static void click(By elementLocated) {
+        try {
+            DriverManager.getDriverInstance().findElement(elementLocated).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sendKeys(By elementLocated, String keyToSend) {
+        try {
+            DriverManager.getDriverInstance().findElement(elementLocated).sendKeys(keyToSend);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String getText(By elementLocated) {
         String elementText = null;
         try {
