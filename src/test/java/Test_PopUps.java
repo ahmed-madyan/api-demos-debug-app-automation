@@ -18,7 +18,7 @@ public class Test_PopUps extends TestBase {
         Assert.assertTrue(ElementActions.findElement(preferenceFromXML).isDisplayed());
         MobileGestures.click(preferenceDependencies);
         Assert.assertEquals(ElementActions.getAttribute(wifiCheckBox, "checked"), "false");
-        Assert.assertEquals(ElementActions.findElement(wifiSettings).getAttribute("enabled"), "false");
+        Assert.assertEquals(ElementActions.getAttribute(wifiSettings, "enabled"), "false");
         MobileGestures.click(wifiCheckBox);
         Assert.assertEquals(ElementActions.getAttribute(wifiCheckBox, "checked"), "true");
         Assert.assertEquals(ElementActions.getAttribute(wifiSettings, "enabled"), "true");
