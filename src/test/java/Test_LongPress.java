@@ -14,21 +14,15 @@ public class Test_LongPress extends TestBase {
 
     @Test
     public void test_LongPress() throws InterruptedException {
-
-
-        Assert.assertTrue(DriverManager.getDriverInstance().findElement(views).isDisplayed());
+        Assert.assertTrue(ElementActions.findElement(views).isDisplayed());
         MobileGestures.click(views);
-        Assert.assertTrue(DriverManager.getDriverInstance().findElement(expandableLists).isDisplayed());
+        Assert.assertTrue(ElementActions.findElement(expandableLists).isDisplayed());
         MobileGestures.click(expandableLists);
-        Assert.assertTrue(DriverManager.getDriverInstance().findElement(customAdapter).isDisplayed());
+        Assert.assertTrue(ElementActions.findElement(customAdapter).isDisplayed());
         MobileGestures.click(customAdapter);
         MobileGestures.longClick(DriverManager.getDriverInstance(), peopleNames, 2000);
-        Assert.assertTrue(DriverManager.getDriverInstance().findElement(widgetListView).isDisplayed());
+        Assert.assertTrue(ElementActions.findElement(widgetListView).isDisplayed());
         Thread.sleep(5000);
         System.out.println(DriverManager.getDriverInstance().findElements(widgetListTitle).get(0).getText() + "\n" + DriverManager.getDriverInstance().findElements(widgetListContent).get(1).getText());
-
-//        Assert.assertEquals(DriverManager.getDriverInstance().findElement(widgetListTitle).getText(), "Sample menu");
-//        Assert.assertEquals(DriverManager.getDriverInstance().findElement(widgetListContent).getText(), "Sample action");
-//        Thread.sleep(5000);
     }
 }
