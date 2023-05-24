@@ -35,6 +35,15 @@ public class Waits {
         }
     }
 
+    public static void elementSelectionStateToBe(By elementLocated, boolean state) {
+        try {
+            visibilityOfElementLocated(elementLocated);
+            webDriverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, state));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void textToBePresentInElementLocated(By elementLocated, String expectedText) {
         try {
             visibilityOfElementLocated(elementLocated);
