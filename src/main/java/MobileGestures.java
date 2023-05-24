@@ -36,7 +36,7 @@ public class MobileGestures {
 
     public static boolean scroll(AndroidDriver driver, By elementLocated, String direction) {
         return (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of(
-                "left", 100, "top", 100, "width", 200, "height", 200,
+                "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
                 "direction", direction,
                 "percent", 3.0
         ));
