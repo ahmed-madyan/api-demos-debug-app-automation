@@ -20,9 +20,9 @@ public class TestBase {
 
     private static final String browserStack_UserName = ("ahmedmadyan_oxTGNa");
     private static final String browserStack_AccessKey = ("efFbRGj4yaxcVuPxyJKs");
-    private static String browserStack_ServerURL = ("https://" + browserStack_UserName + ":" + browserStack_AccessKey + "@hub-cloud.browserstack.com/wd/hub");
-    private static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-    private static HashMap<String, Object> browserstackOptions = new HashMap<>();
+//    private static String browserStack_ServerURL = ("https://" + browserStack_UserName + ":" + browserStack_AccessKey + "@hub-cloud.browserstack.com/wd/hub");
+//    private static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+//    private static HashMap<String, Object> browserstackOptions = new HashMap<>();
 
     @BeforeClass
     protected void initDriver() {
