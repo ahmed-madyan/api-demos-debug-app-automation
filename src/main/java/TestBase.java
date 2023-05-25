@@ -13,10 +13,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 public class TestBase {
-    private AppiumServiceBuilder serviceBuilder;
-    private AppiumDriverLocalService appiumService;
     private static AndroidDriver androidDriver;
-
     private static final String browserStack_UserName = ("ahmedmadyan_oxTGNa");
     private static final String browserStack_AccessKey = ("efFbRGj4yaxcVuPxyJKs");
     private static String browserStack_ServerURL = ("https://" + browserStack_UserName + ":" + browserStack_AccessKey + "@hub-cloud.browserstack.com/wd/hub");
