@@ -1,3 +1,4 @@
+import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,6 +14,23 @@ public class ElementActions {
         }
         return element;
     }
+
+    public static void click(By elementLocated) {
+        try {
+            DriverManager.getDriverInstance().findElement(elementLocated).click();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sendKeys(By elementLocated, String keyToSend) {
+        try {
+            DriverManager.getDriverInstance().findElement(elementLocated).sendKeys(keyToSend);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String getText(By elementLocated) {
         String elementText = null;
         try {
@@ -33,5 +51,14 @@ public class ElementActions {
             e.printStackTrace();
         }
         return attributeValue;
+    }
+
+    public static void scrollIntoView(By elementLocated, String elementText) {
+        try {
+            DriverManager.getDriverInstance().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
+            Waits.visibilityOfElementLocated(elementLocated);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -6,7 +6,7 @@ import java.time.Duration;
 
 public class Waits {
 
-    private static final WebDriverWait webDriverWait = new WebDriverWait(TestBase.getDriver(), Duration.ofSeconds(10));
+    private static final WebDriverWait webDriverWait = new WebDriverWait(TestBase.getDriver(), Duration.ofSeconds(50));
 
     public static void visibilityOfElementLocated(By elementLocated) {
         try {

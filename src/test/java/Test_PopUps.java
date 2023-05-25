@@ -15,15 +15,15 @@ public class Test_PopUps extends TestBase {
     @Test
     public void test_PopUps() {
         MobileGestures.click(preference);
-        Assert.assertTrue(DriverManager.getDriverInstance().findElement(preferenceFromXML).isDisplayed());
+        Assert.assertTrue(ElementActions.findElement(preferenceFromXML).isDisplayed());
         MobileGestures.click(preferenceDependencies);
         Assert.assertEquals(ElementActions.getAttribute(wifiCheckBox, "checked"), "false");
-        Assert.assertEquals(DriverManager.getDriverInstance().findElement(wifiSettings).getAttribute("enabled"), "false");
+        Assert.assertEquals(ElementActions.getAttribute(wifiSettings, "enabled"), "false");
         MobileGestures.click(wifiCheckBox);
-        Assert.assertEquals(DriverManager.getDriverInstance().findElement(wifiCheckBox).getAttribute("checked"), "true");
-        Assert.assertEquals(DriverManager.getDriverInstance().findElement(wifiSettings).getAttribute("enabled"), "true");
+        Assert.assertEquals(ElementActions.getAttribute(wifiCheckBox, "checked"), "true");
+        Assert.assertEquals(ElementActions.getAttribute(wifiSettings, "enabled"), "true");
         MobileGestures.click(wifiSettings);
-        DriverManager.getDriverInstance().findElement(wifiSettingsName).sendKeys("Ahmed");
+        ElementActions.sendKeys(wifiSettingsName, "Ahmed");
         Assert.assertEquals(ElementActions.getText(wifiSettingsName), "Ahmed");
         MobileGestures.click(wifiSettingsOkay);
     }

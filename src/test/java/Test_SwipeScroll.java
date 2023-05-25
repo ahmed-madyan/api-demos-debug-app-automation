@@ -16,25 +16,11 @@ public class Test_SwipeScroll extends TestBase {
     private final By widgetListContent = AppiumBy.id("android:id/title");
 
     @Test
-    public void test_SwipeScroll() {
+    public void test_SwipeScroll() throws InterruptedException {
         Assert.assertTrue(ElementActions.findElement(views).isDisplayed());
         MobileGestures.click(views);
-        ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) DriverManager.getDriverInstance().findElement(views)).getId(),
-                "direction", "down",
-                "percent", 3.0
-        ));
-//        Assert.assertTrue(DriverManager.getDriverInstance().findElement(webView).isDisplayed());
-//        MobileGestures.click(DriverManager.getDriverInstance(), webView);
-//        Assert.assertTrue(DriverManager.getDriverInstance().findElement(customAdapter).isDisplayed());
-//        MobileGestures.click(DriverManager.getDriverInstance(), customAdapter);
-//        MobileGestures.longClick(DriverManager.getDriverInstance(), peopleNames, 2000);
-//        Assert.assertTrue(DriverManager.getDriverInstance().findElement(widgetListView).isDisplayed());
-//        Thread.sleep(5000);
-//        System.out.println(DriverManager.getDriverInstance().findElements(widgetListTitle).get(0).getText() + "\n" + DriverManager.getDriverInstance().findElements(widgetListContent).get(1).getText());
-//
-////        Assert.assertEquals(DriverManager.getDriverInstance().findElement(widgetListTitle).getText(), "Sample menu");
-////        Assert.assertEquals(DriverManager.getDriverInstance().findElement(widgetListContent).getText(), "Sample action");
-////        Thread.sleep(5000);
+        ElementActions.scrollIntoView(webView,"WebView");
+        MobileGestures.click(webView);
+        Thread.sleep(5000);
     }
 }
