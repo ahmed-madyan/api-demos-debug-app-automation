@@ -28,13 +28,13 @@ public class TestBase {
         /**********************************************************************************************************/
         /****************************************Specify the App***************************************************/
         //Specify App
-        desiredCapabilities.setCapability("app", "CyberSafetyApp");
-        /**********************************************************************************************************/
-        /****************************************Select device*****************************************************/
-        //Select device
-        desiredCapabilities.setCapability("platformName", "android");
-        desiredCapabilities.setCapability("platformVersion", "9.0");
-        desiredCapabilities.setCapability("deviceName", "Google Pixel 3");
+//        desiredCapabilities.setCapability("app", "CyberSafetyApp");
+//        /**********************************************************************************************************/
+//        /****************************************Select device*****************************************************/
+//        //Select device
+//        desiredCapabilities.setCapability("platformName", "android");
+//        desiredCapabilities.setCapability("platformVersion", "9.0");
+//        desiredCapabilities.setCapability("deviceName", "Google Pixel 3");
         /**********************************************************************************************************/
         /****************************************Select an automation engine***************************************/
         //Select an automation engine
