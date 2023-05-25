@@ -55,7 +55,6 @@
             <groupId>com.browserstack</groupId>
             <artifactId>browserstack-java-sdk</artifactId>
             <version>${browserstack-java-sdk.version}</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>
