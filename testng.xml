@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="loan_department">
-    <test name="Personal_loan">
+<suite name="Regression Test Suite">
+    <test name="Test">
         <classes>
             <class name="Test_PopUps"/>
             <class name="Test_LongPress"/>
+            <class name="Test_SwipeScroll"/>
         </classes>
-    </test> <!-- Test -->
-</suite> <!-- Suite -->
+    </test>
+</suite>
