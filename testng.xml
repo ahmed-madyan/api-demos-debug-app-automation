@@ -5,6 +5,7 @@
         <classes>
             <class name="Test_PopUps"/>
             <class name="Test_LongPress"/>
+            <class name="Test_SwipeScroll"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
