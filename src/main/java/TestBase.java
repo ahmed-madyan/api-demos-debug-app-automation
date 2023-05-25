@@ -41,7 +41,7 @@ public class TestBase {
         /****************************************Organize tests****************************************************/
         //Organize tests
         browserstackOptions.put("projectName", "CyberSafetyApp");
-        browserstackOptions.put("buildName", "alpha_0.1.7");
+        browserstackOptions.put("buildName", "Regression build no.1");
         /**********************************************************************************************************/
         /****************************************Set debugging options*********************************************/
         //Set debugging options
