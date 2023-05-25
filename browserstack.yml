@@ -13,7 +13,7 @@ accessKey: efFbRGj4yaxcVuPxyJKs
 # Set 'projectName' to the name of your project. Example, Marketing Website
 projectName: BrowserStack Samples
 # Set `buildName` as the name of the job / testsuite being run
-buildName: browserstack build
+buildName: Sanity Check build
 # `buildIdentifier` is a unique id to differentiate every execution that gets appended to
 # buildName. Choose your buildIdentifier format from the available expressions:
 # ${BUILD_NUMBER} (Default): Generates an incremental counter with every execution
@@ -51,26 +51,26 @@ platforms:
     osVersion: 12.0
     platformName: android
 
-# =======================
-# Parallels per Platform
-# =======================
-# The number of parallel threads to be used for each platform set.
-# BrowserStack's SDK runner will select the best strategy based on the configured value
-#
-# Example 1 - If you have configured 3 platforms and set `parallelsPerPlatform` as 2, a total of 6 (2 * 3) parallel threads will be used on BrowserStack
-#
-# Example 2 - If you have configured 1 platform and set `parallelsPerPlatform` as 5, a total of 5 (1 * 5) parallel threads will be used on BrowserStack
-parallelsPerPlatform: 1
+  # =======================
+  # Parallels per Platform
+  # =======================
+  # The number of parallel threads to be used for each platform set.
+  # BrowserStack's SDK runner will select the best strategy based on the configured value
+  #
+  # Example 1 - If you have configured 3 platforms and set `parallelsPerPlatform` as 2, a total of 6 (2 * 3) parallel threads will be used on BrowserStack
+  #
+  # Example 2 - If you have configured 1 platform and set `parallelsPerPlatform` as 5, a total of 5 (1 * 5) parallel threads will be used on BrowserStack
+  #parallelsPerPlatform: 1
+  #
+  #source: testng:appium-archetype-integrate:v1.4
 
-source: testng:appium-archetype-integrate:v2.0
-
-# ==========================================
-# BrowserStack Local
-# (For localhost, staging/private websites)
-# ==========================================
-# Set browserStackLocal to true if your website under test is not accessible publicly over the internet
-# Learn more about how BrowserStack Local works here -> https://www.browserstack.com/docs/automate/selenium/local-testing-introduction
-browserstackLocal: false # <boolean> (Default false)
+  # ==========================================
+  # BrowserStack Local
+  # (For localhost, staging/private websites)
+  # ==========================================
+  # Set browserStackLocal to true if your website under test is not accessible publicly over the internet
+  # Learn more about how BrowserStack Local works here -> https://www.browserstack.com/docs/automate/selenium/local-testing-introduction
+  #browserstackLocal: false # <boolean> (Default false)
 
   # Options to be passed to BrowserStack local in-case of advanced configurations
   # browserStackLocalOptions:
@@ -91,4 +91,4 @@ deviceLogs: true
 appiumLogs: true
 video: true
 appiumVersion: 2.0.0
-
+interactiveDebugging: true
