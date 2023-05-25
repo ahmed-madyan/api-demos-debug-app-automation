@@ -26,55 +26,48 @@ public class TestBase {
     @BeforeClass
     protected void browserStack_Setup() {
         //Build the Browser Stack service
-
+        /**********************************************************************************************************/
+        /****************************************Specify the App***************************************************/
         //Specify App
-//        desiredCapabilities.setCapability("app", "CyberSafetyApp");
-//
-//        //Select device
-//        desiredCapabilities.setCapability("device", "Google Pixel 3");
-//        desiredCapabilities.setCapability("os", "android");
-//        desiredCapabilities.setCapability("os_version", "10.0");
-//
-//        //Select an automation engine
-//        desiredCapabilities.setCapability("automationName", "UIAutomator2");
-//
-//        //Organize tests
-//        browserstackOptions.put("project", "API Demos Debug");
-//        browserstackOptions.put("build", "1");
-//        browserstackOptions.put("name", "API Demos Debug");
-////        browserstackOptions.put("buildTag", "Regression");
-////        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
-//
-//        //Set debugging options
-//        //1- Text logs are enabled by default, and cannot be disabled
-//        //2- Network Logs are disabled by default. To enable network logs use its capability
-//        browserstackOptions.put("networkLogs", "true");
-////        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
-//        //3- Device logs are enabled by default. To disable device logs use its capability
-//        browserstackOptions.put("deviceLogs", "true");
-////        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
-//        //4- Appium logs are enabled by default. To disable Appium logs use its capability
-//        browserstackOptions.put("appiumLogs", "true");
-////        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
-//        //5- Visual logs are disabled by default. To enable visual logs use its capability
-//        browserstackOptions.put("debug", "true");
-////        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
-//        //6- Video logs are enabled by default. Note that video recording slightly increases the text execution time. To disable video logs use its capability
-//        browserstackOptions.put("video", "true");
-////        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
-//
-//        //Set Appium version
-//        browserstackOptions.put("appiumVersion", "2.0.0");
-//        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
-        // Use Java Client v6.0.0 or above
-        browserstackOptions.put("appiumVersion", "2.0.0");
-        browserstackOptions.put("debug", "true");
-        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
+        desiredCapabilities.setCapability("app", "CyberSafetyApp");
+        /**********************************************************************************************************/
+        /****************************************Select device*****************************************************/
+        //Select device
         desiredCapabilities.setCapability("platformName", "android");
         desiredCapabilities.setCapability("platformVersion", "9.0");
         desiredCapabilities.setCapability("deviceName", "Google Pixel 3");
-        desiredCapabilities.setCapability("app", "CyberSafetyApp");
-
+        /**********************************************************************************************************/
+        /****************************************Select an automation engine***************************************/
+        //Select an automation engine
+        desiredCapabilities.setCapability("automationName", "UIAutomator2");
+        /**********************************************************************************************************/
+        /****************************************Organize tests****************************************************/
+        //Organize tests
+        browserstackOptions.put("projectName", "CyberSafetyApp");
+        browserstackOptions.put("buildName", "alpha_0.1.7");
+        /**********************************************************************************************************/
+        /****************************************Set debugging options*********************************************/
+        //Set debugging options
+        //1- Text logs are enabled by default, and cannot be disabled
+        //2- Network Logs are disabled by default. To enable network logs use its capability
+        browserstackOptions.put("networkLogs", "true");
+        //3- Device logs are enabled by default. To disable device logs use its capability
+        browserstackOptions.put("deviceLogs", "true");
+        //4- Appium logs are enabled by default. To disable Appium logs use its capability
+        browserstackOptions.put("appiumLogs", "true");
+        //5- Visual logs are disabled by default. To enable visual logs use its capability
+        browserstackOptions.put("debug", "true");
+        //6- Video logs are enabled by default. Note that video recording slightly increases the text execution time. To disable video logs use its capability
+        browserstackOptions.put("video", "true");
+        /**********************************************************************************************************/
+        /****************************************Set Appium version************************************************/
+        //Set Appium version
+        browserstackOptions.put("appiumVersion", "2.0.0");
+        /**********************************************************************************************************/
+        /*********************************Set browser stack capability options ************************************/
+        //Set bstack:options capabilities
+        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
+        /**********************************************************************************************************/
     }
 
     @BeforeClass(dependsOnMethods = "browserStack_Setup")
