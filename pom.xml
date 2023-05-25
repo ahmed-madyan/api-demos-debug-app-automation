@@ -11,6 +11,7 @@
     <url>https://github.com/ahmed-madyan/rahul-appium-automation</url>
 
     <properties>
+        <testng>testng.xml</testng>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -21,6 +22,7 @@
         <slf4j.version>2.0.7</slf4j.version>
         <slf4j-api.version>${slf4j.version}</slf4j-api.version>
         <slf4j-simple.version>${slf4j.version}</slf4j-simple.version>
+        <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
     </properties>
 
     <dependencies>
@@ -49,10 +51,25 @@
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j-simple.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.browserstack</groupId>
-            <artifactId>browserstack-java-sdk</artifactId>
-            <version>${browserstack-java-sdk.version}</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.browserstack</groupId>-->
+        <!--            <artifactId>browserstack-java-sdk</artifactId>-->
+        <!--            <version>${browserstack-java-sdk.version}</version>-->
+        <!--        </dependency>-->
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${testng}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
