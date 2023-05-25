@@ -33,7 +33,7 @@ framework: testng
 # OR
 # app: 'bs://<app-id>' # App URL returned when uploading the app to BrowserStack manually
 # Visit https://www.browserstack.com/docs/app-automate/appium/set-up-tests/specify-app for more options
-app: bs://f1c40ad07ef1f65b37c5536fed97a28d204255e5 # BrowserStack Sample App
+app: CyberSafetyApp # BrowserStack Sample App
 
 # =======================================
 # Platforms (Browsers / Devices to test)
@@ -62,7 +62,7 @@ platforms:
 # Example 2 - If you have configured 1 platform and set `parallelsPerPlatform` as 5, a total of 5 (1 * 5) parallel threads will be used on BrowserStack
 parallelsPerPlatform: 1
 
-source: testng:appium-archetype-integrate:v1.4
+source: testng:appium-archetype-integrate:v2.0
 
 # ==========================================
 # BrowserStack Local
@@ -72,12 +72,12 @@ source: testng:appium-archetype-integrate:v1.4
 # Learn more about how BrowserStack Local works here -> https://www.browserstack.com/docs/automate/selenium/local-testing-introduction
 browserstackLocal: false # <boolean> (Default false)
 
-# Options to be passed to BrowserStack local in-case of advanced configurations
-# browserStackLocalOptions:
+  # Options to be passed to BrowserStack local in-case of advanced configurations
+  # browserStackLocalOptions:
   # localIdentifier: # <string> (Default: null) Needed if you need to run multiple instances of local.
-  # forceLocal: true  # <boolean> (Default: false) Set to true if you need to resolve all your traffic via BrowserStack Local tunnel.
-  # Entire list of arguments available here -> https://www.browserstack.com/docs/automate/selenium/manage-incoming-connections
-  
+# forceLocal: true  # <boolean> (Default: false) Set to true if you need to resolve all your traffic via BrowserStack Local tunnel.
+# Entire list of arguments available here -> https://www.browserstack.com/docs/automate/selenium/manage-incoming-connections
+
 # ===================
 # Debugging features
 # ===================
@@ -85,4 +85,10 @@ debug: true # <boolean> # Set to true if you need screenshots for every selenium
 networkLogs: true # <boolean> Set to true to enable HAR logs capturing
 consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
 # Available options are `disable`, `errors`, `warnings`, `info`, `verbose` (Default: errors)
+
+automationName: UIAutomator2
+deviceLogs: true
+appiumLogs: true
+video: true
+appiumVersion: 2.0.0
 
