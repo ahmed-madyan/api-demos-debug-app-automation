@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>madyan</groupId>
@@ -13,9 +11,10 @@
     <properties>
         <testng>testng.xml</testng>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <appium.version>8.5.0</appium.version>
+        <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
         <selenium.version>4.9.1</selenium.version>
         <testng.version>7.7.1</testng.version>
         <browserstack-java-sdk.version>1.5.2</browserstack-java-sdk.version>
@@ -51,6 +50,12 @@
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j-simple.version}</version>
         </dependency>
+        <dependency>
+      <groupId>com.browserstack</groupId>
+      <artifactId>browserstack-java-sdk</artifactId>
+      <version>LATEST</version>
+      <scope>compile</scope>
+    </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -62,9 +67,21 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${testng}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>-javaagent:${com.browserstack:browserstack-java-sdk:jar}</argLine>
                 </configuration>
             </plugin>
+            <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <id>getClasspathFilenames</id>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
         </plugins>
     </build>
-
 </project>
