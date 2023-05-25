@@ -70,7 +70,7 @@ source: testng:appium-archetype-integrate:v1.4
   # ==========================================
   # Set browserStackLocal to true if your website under test is not accessible publicly over the internet
   # Learn more about how BrowserStack Local works here -> https://www.browserstack.com/docs/automate/selenium/local-testing-introduction
-  #browserstackLocal: false # <boolean> (Default false)
+browserstackLocal: false # <boolean> (Default false)
 
   # Options to be passed to BrowserStack local in-case of advanced configurations
   # browserStackLocalOptions:
@@ -81,9 +81,9 @@ source: testng:appium-archetype-integrate:v1.4
 # ===================
 # Debugging features
 # ===================
-#debug: true # <boolean> # Set to true if you need screenshots for every selenium command ran
-#networkLogs: true # <boolean> Set to true to enable HAR logs capturing
-#consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
+debug: true # <boolean> # Set to true if you need screenshots for every selenium command ran
+networkLogs: true # <boolean> Set to true to enable HAR logs capturing
+consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
 # Available options are `disable`, `errors`, `warnings`, `info`, `verbose` (Default: errors)
 
 automationName: UIAutomator2
