@@ -1,8 +1,11 @@
 import com.google.common.collect.ImmutableMap;
+import com.microsoft.playwright.M;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 public class MobileGestures {
 
@@ -54,15 +57,38 @@ public class MobileGestures {
         }
     }
 
-    public static boolean scroll(By elementLocated, Direction direction) {
+    public static void scrollToElement(By elementLocated, Direction direction) {
         boolean canScrollMore = false;
         try {
 //            Waits.visibilityOfElementLocated(elementLocated);
-            canScrollMore = (Boolean) ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
+            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
                     "direction", direction.toString(),
                     "percent", 3.0
             ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean scrollWithCoordinates(By elementLocated, Direction direction) {
+        boolean canScrollMore = false;
+        boolean elementDisplayed = false;
+        try {
+            do {
+                canScrollMore = (Boolean) ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
+                        "left", 100, "top", 100, "width", 200, "height", 200,
+                        "direction", direction.toString(),
+                        "percent", 3.0
+                ));
+                elementDisplayed = DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed();
+            } while (canScrollMore && !elementDisplayed);
+            {
+                Assert.assertTrue(DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed());
+            }
+
+//            Waits.visibilityOfElementLocated(elementLocated);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
