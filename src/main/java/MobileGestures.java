@@ -1,14 +1,11 @@
 import com.google.common.collect.ImmutableMap;
-import com.microsoft.playwright.M;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class MobileGestures {
-
 
     public static void longClick(AndroidDriver driver, By elementLocated, int duration) {
         try {
@@ -46,7 +43,6 @@ public class MobileGestures {
 
     public static void swipe(By elementLocated, Direction direction) {
         try {
-//            Waits.visibilityOfElementLocated(elementLocated);
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipeGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) DriverManager.getDriverInstance().findElement(elementLocated)).getId(),
                     "direction", direction.toString(),
@@ -60,7 +56,6 @@ public class MobileGestures {
     public static void scrollToElement(By elementLocated, Direction direction) {
         boolean canScrollMore = false;
         try {
-//            Waits.visibilityOfElementLocated(elementLocated);
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: scrollGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
                     "direction", direction.toString(),
@@ -86,9 +81,6 @@ public class MobileGestures {
             {
                 Assert.assertTrue(DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed());
             }
-
-//            Waits.visibilityOfElementLocated(elementLocated);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
