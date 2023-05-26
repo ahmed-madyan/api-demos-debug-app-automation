@@ -86,7 +86,7 @@ networkLogs: true # <boolean> Set to true to enable HAR logs capturing
 consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
 # Available options are `disable`, `errors`, `warnings`, `info`, `verbose` (Default: errors)
 
-#automationName: UIAutomator2
+automationName: UIAutomator2
 deviceLogs: true
 appiumLogs: true
 video: true
