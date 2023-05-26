@@ -52,13 +52,4 @@ public class ElementActions {
         }
         return attributeValue;
     }
-
-    public static void scrollIntoView(By elementLocated, String elementText) {
-        try {
-            DriverManager.getDriverInstance().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + elementText + "\"));"));
-            Waits.visibilityOfElementLocated(elementLocated);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
