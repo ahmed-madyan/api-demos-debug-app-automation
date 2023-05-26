@@ -2,6 +2,7 @@ import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 
@@ -45,6 +46,18 @@ public class MobileGestures {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipeGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) DriverManager.getDriverInstance().findElement(elementLocated)).getId(),
+                    "direction", direction.toString(),
+                    "percent", 0.75
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void swipe(WebElement element, Direction direction) {
+        try {
+            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) element).getId(),
                     "direction", direction.toString(),
                     "percent", 0.75
             ));
