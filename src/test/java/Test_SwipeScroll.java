@@ -19,7 +19,7 @@ public class Test_SwipeScroll extends TestBase {
     public void test_SwipeScroll() throws InterruptedException {
         Assert.assertTrue(ElementActions.findElement(views).isDisplayed());
         MobileGestures.click(views);
-        ElementActions.scrollIntoView(webView,"WebView");
+        AppiumActions.scrollIntoView(webView, "WebView");
         MobileGestures.click(webView);
         Thread.sleep(5000);
     }
