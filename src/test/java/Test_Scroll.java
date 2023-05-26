@@ -1,12 +1,9 @@
-import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Test_SwipeScroll extends TestBase {
+public class Test_Scroll extends TestBase {
     private final By views = AppiumBy.accessibilityId("Views");
     private final By webView = AppiumBy.accessibilityId("WebView");
     private final By customAdapter = AppiumBy.accessibilityId("1. Custom Adapter");
@@ -16,7 +13,7 @@ public class Test_SwipeScroll extends TestBase {
     private final By widgetListContent = AppiumBy.id("android:id/title");
 
     @Test
-    public void test_SwipeScroll() throws InterruptedException {
+    public void test_Scroll() throws InterruptedException {
         Assert.assertTrue(ElementActions.findElement(views).isDisplayed());
         MobileGestures.click(views);
         AppiumActions.scrollIntoView(webView, "WebView");

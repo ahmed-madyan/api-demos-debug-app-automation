@@ -5,7 +5,7 @@
         <classes>
             <class name="Test_PopUps"/>
             <class name="Test_LongPress"/>
-            <class name="Test_SwipeScroll"/>
+            <class name="Test_Scroll"/>
         </classes>
     </test>
 </suite>
