@@ -3,8 +3,8 @@
 <suite name="loan_department">
     <test name="Personal_loan">
         <classes>
-<!--            <class name="Test_PopUps"/>-->
-<!--            <class name="Test_LongPress"/>-->
+            <class name="Test_PopUps"/>
+            <class name="Test_LongPress"/>
             <class name="Test_SwipeScroll"/>
         </classes>
     </test>
