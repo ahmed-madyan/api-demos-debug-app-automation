@@ -9,8 +9,8 @@ import org.testng.Assert;
 public class MobileGestures {
 
     public static void longClick(AndroidDriver driver, By elementLocated, int duration) {
+        Waits.elementToBeClickable(elementLocated);
         try {
-            Waits.elementToBeClickable(elementLocated);
             ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId(),
                     "duration", duration
@@ -21,8 +21,8 @@ public class MobileGestures {
     }
 
     public static void doubleClick(AndroidDriver driver, By elementLocated) {
+        Waits.elementToBeClickable(elementLocated);
         try {
-            Waits.elementToBeClickable(elementLocated);
             ((JavascriptExecutor) driver).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
                     "elementId", ((RemoteWebElement) driver.findElement(elementLocated)).getId()
             ));
@@ -32,10 +32,10 @@ public class MobileGestures {
     }
 
     public static void click(By elementLocated) {
+        Waits.elementToBeClickable(elementLocated);
         try {
-            Waits.elementToBeClickable(elementLocated);
             DriverManager.getDriverInstance().executeScript("mobile: clickGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) DriverManager.getDriverInstance().findElement(elementLocated)).getId()
+                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId()
             ));
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,7 +45,7 @@ public class MobileGestures {
     public static void swipe(By elementLocated, Direction direction) {
         try {
             ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: swipeGesture", ImmutableMap.of(
-                    "elementId", ((RemoteWebElement) DriverManager.getDriverInstance().findElement(elementLocated)).getId(),
+                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
                     "direction", direction.toString(),
                     "percent", 0.75
             ));
@@ -89,15 +89,28 @@ public class MobileGestures {
                         "direction", direction.toString(),
                         "percent", 3.0
                 ));
-                elementDisplayed = DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed();
+                elementDisplayed = ElementActions.findElement(elementLocated).isDisplayed();
             } while (canScrollMore && !elementDisplayed);
             {
-                Assert.assertTrue(DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed());
+                Assert.assertTrue(ElementActions.findElement(elementLocated).isDisplayed());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return canScrollMore;
+    }
+
+    public static void drag(By elementLocated, int xEndCoordinate, int yEndCoordinate) {
+        Waits.elementToBeClickable(elementLocated);
+        try {
+            ((JavascriptExecutor) DriverManager.getDriverInstance()).executeScript("mobile: dragGesture", ImmutableMap.of(
+                    "elementId", ((RemoteWebElement) ElementActions.findElement(elementLocated)).getId(),
+                    "endX", xEndCoordinate,
+                    "endY", yEndCoordinate
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     enum Direction {
