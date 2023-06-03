@@ -1,6 +1,8 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class ElementActions {
 
     public static WebElement findElement(By elementLocated) {
@@ -8,6 +10,17 @@ public class ElementActions {
         try {
             Waits.visibilityOfElementLocated(elementLocated);
             element = DriverManager.getDriverInstance().findElement(elementLocated);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return element;
+    }
+
+    public static List<WebElement> findElements(By elementLocated) {
+        List<WebElement> element = null;
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            element = DriverManager.getDriverInstance().findElements(elementLocated);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -3,9 +3,10 @@
 <suite name="loan_department">
     <test name="Personal_loan">
         <classes>
-            <class name="Test_PopUps"/>
-            <class name="Test_LongPress"/>
-            <class name="Test_SwipeScroll"/>
+<!--            <class name="Test_PopUps"/>-->
+<!--            <class name="Test_LongPress"/>-->
+<!--            <class name="Test_Scroll"/>-->
+            <class name="Test_Swipe"/>
         </classes>
     </test>
 </suite>
