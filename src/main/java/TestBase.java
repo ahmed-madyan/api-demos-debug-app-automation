@@ -25,7 +25,7 @@ public class TestBase {
 
     @AfterClass(alwaysRun = true)
     protected void tearDownDriver() {
-        //Stop the server with the builder
+        //Tear the driver instance down
         androidDriver.quit();
     }
 
