@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Test_Swipe extends TestBase {
+public class SwipeTest extends TestBase {
     private final By views = AppiumBy.accessibilityId("Views");
     private final By gallery = AppiumBy.accessibilityId("Gallery");
     private final By photos = AppiumBy.accessibilityId("1. Photos");

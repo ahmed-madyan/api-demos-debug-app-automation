@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Test_Scroll extends TestBase {
+public class ScrollTest extends TestBase {
     private final By views = AppiumBy.accessibilityId("Views");
     private final By webView = AppiumBy.accessibilityId("WebView");
     private final By customAdapter = AppiumBy.accessibilityId("1. Custom Adapter");

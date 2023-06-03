@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Test_PopUps extends TestBase {
+public class PopUpsTest extends TestBase {
     private final By preference = AppiumBy.accessibilityId("Preference");
     private final By preferenceFromXML = AppiumBy.accessibilityId("1. Preferences from XML");
     private final By preferenceDependencies = AppiumBy.accessibilityId("3. Preference dependencies");
