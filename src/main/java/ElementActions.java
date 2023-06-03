@@ -71,8 +71,8 @@ public class ElementActions {
         int middleLocationX = 0;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
-            leftLocationX = findElement(elementLocated).getLocation().getX();
-            rightLocationX = findElement(elementLocated).getSize().getWidth();
+            leftLocationX = getElementLocationX(elementLocated);
+            rightLocationX = getElementWidth(elementLocated);
             middleLocationX = ((leftLocationX + rightLocationX) / 2);
             System.out.println
                     ("Left Location X: " + leftLocationX +
@@ -90,8 +90,8 @@ public class ElementActions {
         int middleLocationY = 0;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
-            upperLocationY = findElement(elementLocated).getLocation().getY();
-            lowerLocationY = findElement(elementLocated).getSize().getHeight();
+            upperLocationY = getElementLocationY(elementLocated);
+            lowerLocationY = getElementHeight(elementLocated);
             middleLocationY = ((upperLocationY + lowerLocationY) / 2);
             System.out.println
                     ("Upper Location Y: " + upperLocationY +
@@ -101,5 +101,53 @@ public class ElementActions {
             e.printStackTrace();
         }
         return middleLocationY;
+    }
+
+    public static int getElementLocationX(By elementLocated) {
+        int elementLocationX = 0;
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            elementLocationX = findElement(elementLocated).getLocation().getX();
+            System.out.println("Element Location X: " + elementLocationX);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return elementLocationX;
+    }
+
+    public static int getElementWidth(By elementLocated) {
+        int elementWidth = 0;
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            elementWidth = findElement(elementLocated).getSize().getWidth();
+            System.out.println("Element width: " + elementWidth);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return elementWidth;
+    }
+
+    public static int getElementLocationY(By elementLocated) {
+        int elementLocationY = 0;
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            elementLocationY = findElement(elementLocated).getLocation().getY();
+            System.out.println("Element Location Y: " + elementLocationY);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return elementLocationY;
+    }
+
+    public static int getElementHeight(By elementLocated) {
+        int elementHeight = 0;
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            elementHeight = findElement(elementLocated).getSize().getHeight();
+            System.out.println("Element height: " + elementHeight);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return elementHeight;
     }
 }
