@@ -13,7 +13,7 @@ public class LongPressTest extends TestBase {
     private final By widgetListContent = AppiumBy.id("android:id/title");
 
     @Test
-    public void test_LongPress() throws InterruptedException {
+    public void test_LongPress() {
         Assert.assertTrue(ElementActions.findElement(views).isDisplayed());
         MobileGestures.click(views);
         Assert.assertTrue(ElementActions.findElement(expandableLists).isDisplayed());
@@ -22,7 +22,5 @@ public class LongPressTest extends TestBase {
         MobileGestures.click(customAdapter);
         MobileGestures.longClick(DriverManager.getDriverInstance(), peopleNames, 2000);
         Assert.assertTrue(ElementActions.findElement(widgetListView).isDisplayed());
-        Thread.sleep(5000);
-        System.out.println(DriverManager.getDriverInstance().findElements(widgetListTitle).get(0).getText() + "\n" + DriverManager.getDriverInstance().findElements(widgetListContent).get(1).getText());
     }
 }

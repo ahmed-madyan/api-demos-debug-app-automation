@@ -10,7 +10,7 @@ public class SwipeTest extends TestBase {
     private final By imageView = AppiumBy.className("android.widget.ImageView");
 
     @Test
-    public void test_Swipe() throws InterruptedException {
+    public void test_Swipe() {
         Assert.assertTrue(ElementActions.findElement(views).isDisplayed());
         MobileGestures.click(views);
         MobileGestures.click(gallery);
