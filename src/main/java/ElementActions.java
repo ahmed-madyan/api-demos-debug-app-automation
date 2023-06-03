@@ -29,7 +29,7 @@ public class ElementActions {
 
     public static void click(By elementLocated) {
         try {
-            DriverManager.getDriverInstance().findElement(elementLocated).click();
+            findElement(elementLocated).click();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,7 +37,7 @@ public class ElementActions {
 
     public static void sendKeys(By elementLocated, String keyToSend) {
         try {
-            DriverManager.getDriverInstance().findElement(elementLocated).sendKeys(keyToSend);
+            findElement(elementLocated).sendKeys(keyToSend);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ public class ElementActions {
         String elementText = null;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
-            elementText = DriverManager.getDriverInstance().findElement(elementLocated).getText();
+            elementText = findElement(elementLocated).getText();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -58,10 +58,48 @@ public class ElementActions {
         String attributeValue = null;
         try {
             Waits.visibilityOfElementLocated(elementLocated);
-            attributeValue = DriverManager.getDriverInstance().findElement(elementLocated).getAttribute(attribute);
+            attributeValue = findElement(elementLocated).getAttribute(attribute);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return attributeValue;
+    }
+
+    public static int getMiddleLocationX(By elementLocated) {
+        int leftLocationX;
+        int rightLocationX;
+        int middleLocationX = 0;
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            leftLocationX = findElement(elementLocated).getLocation().getX();
+            rightLocationX = findElement(elementLocated).getSize().getWidth();
+            middleLocationX = ((leftLocationX + rightLocationX) / 2);
+            System.out.println
+                    ("Left Location X: " + leftLocationX +
+                            "\nRight Location X: " + rightLocationX +
+                            "\nMiddle Location X: " + middleLocationX);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return middleLocationX;
+    }
+
+    public static int getMiddleLocationY(By elementLocated) {
+        int upperLocationY;
+        int lowerLocationY;
+        int middleLocationY = 0;
+        try {
+            Waits.visibilityOfElementLocated(elementLocated);
+            upperLocationY = findElement(elementLocated).getLocation().getY();
+            lowerLocationY = findElement(elementLocated).getSize().getHeight();
+            middleLocationY = ((upperLocationY + lowerLocationY) / 2);
+            System.out.println
+                    ("Upper Location Y: " + upperLocationY +
+                            "\nLower Location Y: " + lowerLocationY +
+                            "\nMiddle Location Y: " + middleLocationY);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return middleLocationY;
     }
 }

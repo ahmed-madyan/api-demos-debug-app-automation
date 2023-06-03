@@ -16,5 +16,11 @@ public class DragAndDropTest extends TestBase {
         MobileGestures.click(views);
         Assert.assertTrue(ElementActions.findElement(dragAndDrop).isDisplayed());
         MobileGestures.click(dragAndDrop);
+        MobileGestures.drag(dragDot_1, ElementActions.getMiddleLocationX(dragDot_2), ElementActions.getMiddleLocationY(dragDot_2));
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
