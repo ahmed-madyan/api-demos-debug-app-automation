@@ -20,6 +20,8 @@ public class DragAndDropTest extends TestBase {
         MobileGestures.click(dragAndDrop);
         MobileGestures.drag(dragDot_1, ElementActions.getMiddleLocationX(dragDot_2), ElementActions.getMiddleLocationY(dragDot_2));
         Assert.assertEquals(ElementActions.getText(dragResultText), "Dropped!");
+        MobileGestures.drag(dragDot_1, ElementActions.getMiddleLocationX(dragDot_3), ElementActions.getMiddleLocationY(dragDot_3));
+        Assert.assertEquals(ElementActions.getText(dragResultText), "Dropped!");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
