@@ -11,6 +11,7 @@ public class DragAndDropTest extends TestBase {
     private final By dragDot_3 = AppiumBy.id("io.appium.android.apis:id/drag_dot_2");
     private final By dragResultText = AppiumBy.id("io.appium.android.apis:id/drag_result_text");
 
+    private final By chart = AppiumBy.id("io.appium.android.apis:id/drag_dot_2");
 
     @Test
     public void test_DragAndDrop() {
@@ -26,6 +27,17 @@ public class DragAndDropTest extends TestBase {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void chartTest() {
+        int chartSize = DriverManager.getDriverInstance().findElements(chart).size();
+        int chartEnabled = 0;
+
+        for (int i = 0; i < chartSize - 1; i++) {
+            Assert.assertTrue(DriverManager.getDriverInstance().findElements(chart).get(i).isDisplayed());
+            if (DriverManager.getDriverInstance().findElements(chart).get(i).getAttribute("").equals(""))
+                chartEnabled++;
         }
     }
 }
