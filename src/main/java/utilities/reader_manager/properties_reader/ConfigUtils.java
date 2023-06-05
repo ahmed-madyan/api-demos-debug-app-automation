@@ -1,8 +1,8 @@
 package utilities.reader_manager.properties_reader;
 
 public class ConfigUtils {
-    private static final String EXECUTION_CONFIG_FILE_PATH = ("/src/main/resources/configurations/ExecutionPlatform.properties");
-    private static final String CONFIG_PROPERTIES_FILE_PATH = ("/src/main/resources/Config.properties");
+    private static final String EXECUTION_CONFIG_FILE_PATH = ("/src/main/resources/config_properties/ExecutionPlatform.properties");
+    private static final String CONFIG_PROPERTIES_FILE_PATH = ("/src/main/resources/config_properties/Config.properties");
     private static String baseURI_ST;
     private static String baseURI_SIT;
     private static String fireBase_URI;
