@@ -13,9 +13,9 @@ import java.util.HashMap;
 
 public class BrowserStackConfig {
     private static final String CONFIG_FILE_PATH = ("/src/main/resources/config_properties/BrowserStackCapabilities.properties");
-    private static String browserStack_ServerURL = ("https://" + PropertiesDataManager.getProperty("username", CONFIG_FILE_PATH) + ":" + PropertiesDataManager.getProperty("accessKey", CONFIG_FILE_PATH) + "@hub-cloud.browserstack.com/wd/hub");
-    private static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-    private static HashMap<String, Object> browserstackOptions = new HashMap<>();
+    private static final String browserStack_ServerURL = ("https://" + PropertiesDataManager.getProperty("username", CONFIG_FILE_PATH) + ":" + PropertiesDataManager.getProperty("accessKey", CONFIG_FILE_PATH) + "@hub-cloud.browserstack.com/wd/hub");
+    private static final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    private static final HashMap<String, Object> browserstackOptions = new HashMap<>();
     private static AndroidDriver androidDriver;
 
     protected static AndroidDriver browserStackInitialization() {
