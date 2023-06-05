@@ -2,6 +2,10 @@ import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import actions.ElementActions;
+import mobile_gestures.MobileGestures;
+import hooks.DriverManager;
+import hooks.TestBase;
 
 public class LongPressTest extends TestBase {
     private final By views = AppiumBy.accessibilityId("Views");

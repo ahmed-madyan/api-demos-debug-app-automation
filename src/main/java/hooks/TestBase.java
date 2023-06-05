@@ -1,3 +1,5 @@
+package hooks;
+
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -7,6 +9,7 @@ import org.openqa.selenium.MutableCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import utilities.reader_manager.properties_reader.ConfigUtils;
+import webdriver_waits.Waits;
 
 import java.io.File;
 import java.net.MalformedURLException;

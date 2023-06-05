@@ -14,7 +14,7 @@ public class ConfigUtils {
 //        setBaseURI_SIT(PropertiesDataManager.getProperty("URI_SIT", EXECUTION_CONFIG_FILE_PATH));
 //        setFireBase_URI(PropertiesDataManager.getProperty("FireBase_URI", EXECUTION_CONFIG_FILE_PATH));
 //        setFireBase_API_Key(PropertiesDataManager.getProperty("FireBase_API_Key", EXECUTION_CONFIG_FILE_PATH));
-        setExecution_Platform(PropertiesDataManager.getProperty("platform", EXECUTION_CONFIG_FILE_PATH));
+        setExecution_Platform(PropertiesDataManager.getProperty("executionPlatform", EXECUTION_CONFIG_FILE_PATH));
     }
 
     public static String getBaseURI_ST() {

@@ -1,5 +1,9 @@
+package actions;
+
+import hooks.DriverManager;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
+import webdriver_waits.Waits;
 
 public class AppiumActions {
     public static void scrollIntoView(By elementLocated, String elementText) {
