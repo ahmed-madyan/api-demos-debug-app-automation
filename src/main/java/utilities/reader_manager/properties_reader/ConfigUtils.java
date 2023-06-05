@@ -8,6 +8,7 @@ public class ConfigUtils {
     private static String fireBase_URI;
     private static String fireBase_API_Key;
     private static String execution_Platform;
+    private static String targetRemoteExecution;
 
     public static void setConfigProperties() {
 //        setBaseURI_ST(PropertiesDataManager.getProperty("URI_ST", EXECUTION_CONFIG_FILE_PATH));
@@ -15,6 +16,11 @@ public class ConfigUtils {
 //        setFireBase_URI(PropertiesDataManager.getProperty("FireBase_URI", EXECUTION_CONFIG_FILE_PATH));
 //        setFireBase_API_Key(PropertiesDataManager.getProperty("FireBase_API_Key", EXECUTION_CONFIG_FILE_PATH));
         setExecution_Platform(PropertiesDataManager.getProperty("executionPlatform", EXECUTION_CONFIG_FILE_PATH));
+        setTargetRemoteExecution(PropertiesDataManager.getProperty("targetRemoteExecution", EXECUTION_CONFIG_FILE_PATH));
+    }
+
+    public static void getCapability(String capability, String filePath) {
+        PropertiesDataManager.getProperty(capability, filePath);
     }
 
     public static String getBaseURI_ST() {
@@ -55,6 +61,14 @@ public class ConfigUtils {
 
     public static void setExecution_Platform(String execution_Platform) {
         ConfigUtils.execution_Platform = execution_Platform;
+    }
+
+    public static String getTargetRemoteExecution() {
+        return targetRemoteExecution;
+    }
+
+    public static void setTargetRemoteExecution(String targetRemoteExecution) {
+        ConfigUtils.targetRemoteExecution = targetRemoteExecution;
     }
 
     enum Config {
