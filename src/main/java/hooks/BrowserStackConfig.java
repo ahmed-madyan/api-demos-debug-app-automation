@@ -85,7 +85,7 @@ public class BrowserStackConfig {
     private static void setupYML() {
         try {
             MutableCapabilities capabilities = new UiAutomator2Options();
-            androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
+            androidDriver = new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", CONFIG_FILE_PATH)), capabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
