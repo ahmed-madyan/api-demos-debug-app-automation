@@ -18,6 +18,7 @@ public class TestBase {
 
     @BeforeClass(alwaysRun = true)
     protected void initDriver() {
+        ConfigUtils.setConfigProperties();
         switch (ConfigUtils.getExecution_Platform()) {
             case "local" -> {
                 //Build the Appium service
@@ -33,7 +34,7 @@ public class TestBase {
                     androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723"),
                             new UiAutomator2Options()
                                     .setDeviceName("Pixel 2 XL")
-                                    .setApp("C:\\Users\\_VOIS\\Documents\\GitHub\\rahul-appium-automation\\src\\main\\resources\\ApiDemos-debug.apk"));
+                                    .setApp("C:\\Users\\_VOIS\\Documents\\GitHub\\rahul-appium-automation\\src\\main\\resources\\app_binaries\\ApiDemos-debug.apk"));
                     Waits.visibilityOfElementLocated(AppiumBy.id("android:id/action_bar_container"));
                 } catch (MalformedURLException e) {
                     throw new RuntimeException(e);
