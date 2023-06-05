@@ -14,7 +14,6 @@ public class DragAndDropTest extends TestBase {
     private final By dragDot_3 = AppiumBy.id("io.appium.android.apis:id/drag_dot_2");
     private final By dragResultText = AppiumBy.id("io.appium.android.apis:id/drag_result_text");
 
-
     @Test
     public void test_DragAndDrop() {
         Assert.assertTrue(ElementActions.findElement(views).isDisplayed());
