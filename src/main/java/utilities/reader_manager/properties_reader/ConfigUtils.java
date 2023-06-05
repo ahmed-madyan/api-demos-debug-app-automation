@@ -1,4 +1,4 @@
-package reader_manager.properties_reader;
+package utilities.reader_manager.properties_reader;
 
 public class ConfigUtils {
     private static final String EXECUTION_CONFIG_FILE_PATH = ("/src/main/resources/configurations/ExecutionPlatform.properties");
@@ -14,7 +14,7 @@ public class ConfigUtils {
 //        setBaseURI_SIT(PropertiesDataManager.getProperty("URI_SIT", EXECUTION_CONFIG_FILE_PATH));
 //        setFireBase_URI(PropertiesDataManager.getProperty("FireBase_URI", EXECUTION_CONFIG_FILE_PATH));
 //        setFireBase_API_Key(PropertiesDataManager.getProperty("FireBase_API_Key", EXECUTION_CONFIG_FILE_PATH));
-        setExecution_Platform(PropertiesDataManager.getProperty("FireBase_API_Key", EXECUTION_CONFIG_FILE_PATH));
+        setExecution_Platform(PropertiesDataManager.getProperty("platform", EXECUTION_CONFIG_FILE_PATH));
     }
 
     public static String getBaseURI_ST() {

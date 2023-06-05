@@ -6,7 +6,7 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.openqa.selenium.MutableCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import reader_manager.properties_reader.ConfigUtils;
+import utilities.reader_manager.properties_reader.ConfigUtils;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -50,7 +50,10 @@ public class TestBase {
                     throw new RuntimeException(e);
                 }
             }
-            default -> System.out.println("Kindly set the execution platform address.");
+            default -> {
+                System.out.println("Kindly set the execution platform address.");
+                throw new RuntimeException();
+            }
         }
     }
 

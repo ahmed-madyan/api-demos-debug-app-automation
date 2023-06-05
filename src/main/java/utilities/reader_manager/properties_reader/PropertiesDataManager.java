@@ -1,4 +1,4 @@
-package reader_manager.properties_reader;
+package utilities.reader_manager.properties_reader;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
