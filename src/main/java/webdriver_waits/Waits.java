@@ -1,3 +1,6 @@
+package webdriver_waits;
+
+import hooks.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -5,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class Waits {
-    private static final WebDriverWait webDriverWait = new WebDriverWait(TestBase.getDriver(), Duration.ofSeconds(50));
+    private static final WebDriverWait webDriverWait = new WebDriverWait(DriverManager.getDriverInstance(), Duration.ofSeconds(50));
 
     public static void visibilityOfElementLocated(By elementLocated) {
         try {

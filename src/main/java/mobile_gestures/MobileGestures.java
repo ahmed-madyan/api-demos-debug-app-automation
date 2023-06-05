@@ -1,10 +1,15 @@
+package mobile_gestures;
+
 import com.google.common.collect.ImmutableMap;
+import hooks.DriverManager;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
+import actions.ElementActions;
+import webdriver_waits.Waits;
 
 public class MobileGestures {
 
@@ -113,7 +118,7 @@ public class MobileGestures {
         }
     }
 
-    enum Direction {
+    public enum Direction {
         UP,
         DOWN,
         RIGHT,

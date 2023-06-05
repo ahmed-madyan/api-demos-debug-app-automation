@@ -1,5 +1,9 @@
+package actions;
+
+import hooks.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import webdriver_waits.Waits;
 
 import java.util.List;
 

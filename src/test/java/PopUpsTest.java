@@ -2,6 +2,9 @@ import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import actions.ElementActions;
+import mobile_gestures.MobileGestures;
+import hooks.TestBase;
 
 public class PopUpsTest extends TestBase {
     private final By preference = AppiumBy.accessibilityId("Preference");
