@@ -33,7 +33,7 @@ framework: testng
 # OR
 # app: 'bs://<app-id>' # App URL returned when uploading the app to BrowserStack manually
 # Visit https://www.browserstack.com/docs/app-automate/appium/set-up-tests/specify-app for more options
-app: CyberSafetyApp # BrowserStack Sample App
+app: CyberSafetyApp # Custom id
 
 # =======================================
 # Platforms (Browsers / Devices to test)
@@ -44,36 +44,36 @@ platforms:
   - deviceName: Samsung Galaxy S22 Ultra
     osVersion: 12.0
     platformName: android
-  #  - deviceName: Samsung Galaxy S21
-  #    osVersion: 11.0
-  #    platformName: android
-  #  - deviceName: Google Pixel 6 Pro
-  #    osVersion: 12.0
-  #    platformName: android
+#  - deviceName: Samsung Galaxy S21
+#    osVersion: 11.0
+#    platformName: android
+#  - deviceName: Google Pixel 6 Pro
+#    osVersion: 12.0
+#    platformName: android
 
-  # =======================
-  # Parallels per Platform
-  # =======================
-  # The number of parallel threads to be used for each platform set.
-  # BrowserStack's SDK runner will select the best strategy based on the configured value
-  #
-  # Example 1 - If you have configured 3 platforms and set `parallelsPerPlatform` as 2, a total of 6 (2 * 3) parallel threads will be used on BrowserStack
-  #
-  # Example 2 - If you have configured 1 platform and set `parallelsPerPlatform` as 5, a total of 5 (1 * 5) parallel threads will be used on BrowserStack
+# =======================
+# Parallels per Platform
+# =======================
+# The number of parallel threads to be used for each platform set.
+# BrowserStack's SDK runner will select the best strategy based on the configured value
+#
+# Example 1 - If you have configured 3 platforms and set `parallelsPerPlatform` as 2, a total of 6 (2 * 3) parallel threads will be used on BrowserStack
+#
+# Example 2 - If you have configured 1 platform and set `parallelsPerPlatform` as 5, a total of 5 (1 * 5) parallel threads will be used on BrowserStack
 parallelsPerPlatform: 1
 
 source: testng:appium-archetype-integrate:v1.4
 
-  # ==========================================
-  # BrowserStack Local
-  # (For localhost, staging/private websites)
-  # ==========================================
-  # Set browserStackLocal to true if your website under test is not accessible publicly over the internet
+# ==========================================
+# BrowserStack Local
+# (For localhost, staging/private websites)
+# ==========================================
+# Set browserStackLocal to true if your website under test is not accessible publicly over the internet
 # Learn more about how BrowserStack Local works here -> https://www.browserstack.com/docs/automate/selenium/local-testing-introduction
 browserstackLocal: false # <boolean> (Default false)
 
-  # Options to be passed to BrowserStack local in-case of advanced configurations
-  # browserStackLocalOptions:
+# Options to be passed to BrowserStack local in-case of advanced configurations
+# browserStackLocalOptions:
 # localIdentifier: # <string> (Default: null) Needed if you need to run multiple instances of local.
 # forceLocal: true  # <boolean> (Default: false) Set to true if you need to resolve all your traffic via BrowserStack Local tunnel.
 # Entire list of arguments available here -> https://www.browserstack.com/docs/automate/selenium/manage-incoming-connections
@@ -83,12 +83,15 @@ browserstackLocal: false # <boolean> (Default false)
 # ===================
 debug: true # <boolean> # Set to true if you need screenshots for every selenium command ran
 networkLogs: true # <boolean> Set to true to enable HAR logs capturing
-consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
+consoleLogs: info # <string> Remote browser's console debug levels to be printed (Default: errors)
 # Available options are `disable`, `errors`, `warnings`, `info`, `verbose` (Default: errors)
-
-automationName: UIAutomator2
 deviceLogs: true
 appiumLogs: true
 video: true
-appiumVersion: 2.0.0
 interactiveDebugging: true
+testObservability: true
+# ===================
+# Automation name and appium version
+# ===================
+automationName: UIAutomator2
+appiumVersion: 2.0.0
