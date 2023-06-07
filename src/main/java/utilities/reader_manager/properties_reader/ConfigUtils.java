@@ -1,8 +1,6 @@
 package utilities.reader_manager.properties_reader;
 
 public class ConfigUtils {
-    private static final String EXECUTION_CONFIG_FILE_PATH = ("/src/main/resources/config_properties/ExecutionPlatform.properties");
-    private static final String CONFIG_PROPERTIES_FILE_PATH = ("/src/main/resources/config_properties/Config.properties");
     private static String baseURI_ST;
     private static String baseURI_SIT;
     private static String fireBase_URI;
@@ -15,8 +13,8 @@ public class ConfigUtils {
 //        setBaseURI_SIT(PropertiesDataManager.getProperty("URI_SIT", EXECUTION_CONFIG_FILE_PATH));
 //        setFireBase_URI(PropertiesDataManager.getProperty("FireBase_URI", EXECUTION_CONFIG_FILE_PATH));
 //        setFireBase_API_Key(PropertiesDataManager.getProperty("FireBase_API_Key", EXECUTION_CONFIG_FILE_PATH));
-        setExecution_Platform(PropertiesDataManager.getProperty("executionPlatform", EXECUTION_CONFIG_FILE_PATH));
-        setTargetRemoteExecution(PropertiesDataManager.getProperty("targetRemoteExecution", EXECUTION_CONFIG_FILE_PATH));
+        setExecution_Platform(PropertiesDataManager.getProperty("executionPlatform", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES));
+        setTargetRemoteExecution(PropertiesDataManager.getProperty("targetRemoteExecution", PropertiesDataManager.Capability.EXECUTION_CAPABILITIES));
     }
 
     public static void getCapability(String capability, String filePath) {
@@ -69,9 +67,5 @@ public class ConfigUtils {
 
     public static void setTargetRemoteExecution(String targetRemoteExecution) {
         ConfigUtils.targetRemoteExecution = targetRemoteExecution;
-    }
-
-    enum Config {
-        EXEC_PLATFORM
     }
 }
