@@ -8,6 +8,7 @@
             <class name="ScrollTest"/>
             <class name="SwipeTest"/>
             <class name="DragAndDropTest"/>
+            <class name="MiscellaneousOrientationAndKeyEventTest"/>
         </classes>
     </test>
 </suite>
