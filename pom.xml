@@ -9,6 +9,7 @@
     <name>${project.groupId}:${project.artifactId}</name>
     <url>https://github.com/ahmed-madyan/rahul-appium-automation</url>
 
+
     <properties>
         <testng>testng.xml</testng>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,6 +26,7 @@
         <slf4j-simple.version>${slf4j.version}</slf4j-simple.version>
         <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -70,6 +72,8 @@
             <version>3.11.0</version>
         </dependency>
     </dependencies>
+
+
     <build>
         <plugins>
             <plugin>
