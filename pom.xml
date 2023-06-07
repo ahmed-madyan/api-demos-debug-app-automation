@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>madyan</groupId>
-    <artifactId>rahul-appium-automation</artifactId>
+    <groupId>com.madyan</groupId>
+    <artifactId>api-demos-debug-app-automation</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <url>https://github.com/ahmed-madyan/rahul-appium-automation</url>
