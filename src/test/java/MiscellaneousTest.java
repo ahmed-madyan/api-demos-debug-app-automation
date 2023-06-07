@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class MiscellaneousOrientationAndKeyEventTest extends TestBase {
+public class MiscellaneousTest extends TestBase {
     private final By preference = AppiumBy.accessibilityId("Preference");
     private final By preferenceFromXML = AppiumBy.accessibilityId("1. Preferences from XML");
     private final By preferenceDependencies = AppiumBy.accessibilityId("3. Preference dependencies");
