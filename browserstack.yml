@@ -33,7 +33,7 @@ framework: testng
 # OR
 # app: 'bs://<app-id>' # App URL returned when uploading the app to BrowserStack manually
 # Visit https://www.browserstack.com/docs/app-automate/appium/set-up-tests/specify-app for more options
-app: CyberSafetyApp # Custom id
+app: ApiDemosDebugApk # Custom id
 
 # =======================================
 # Platforms (Browsers / Devices to test)
