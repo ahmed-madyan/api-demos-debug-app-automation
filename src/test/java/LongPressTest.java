@@ -1,13 +1,14 @@
+import driver_manager.DriverInitializer;
+import driver_manager.DriverManager;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import actions.ElementActions;
 import mobile_gestures.MobileGestures;
-import hooks.DriverManager;
-import hooks.TestBase;
 
-public class LongPressTest extends TestBase {
+
+public class LongPressTest extends DriverInitializer {
     private final By views = AppiumBy.accessibilityId("Views");
     private final By expandableLists = AppiumBy.accessibilityId("Expandable Lists");
     private final By customAdapter = AppiumBy.accessibilityId("1. Custom Adapter");

@@ -1,15 +1,14 @@
-import hooks.DriverManager;
+import actions.AppiumActions;
+import actions.ElementActions;
+import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.Activity;
+import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import actions.ElementActions;
-import mobile_gestures.MobileGestures;
-import hooks.TestBase;
 import utilities.reader_manager.properties_reader.PropertiesDataManager;
 
-public class SwipeTest extends TestBase {
+public class SwipeTest extends DriverInitializer {
     private final By views = AppiumBy.accessibilityId("Views");
     private final By gallery = AppiumBy.accessibilityId("Gallery");
     private final By photos = AppiumBy.accessibilityId("1. Photos");
@@ -28,8 +27,7 @@ public class SwipeTest extends TestBase {
 
     @Test
     public void test_SwipeUsingAppActivity() {
-        DriverManager.getDriverInstance().startActivity(
-                new Activity(PropertiesDataManager.getProperty("mobile_appPackage", PropertiesDataManager.Capability.MOBILE_CAPABILITIES), "io.appium.android.apis.view.Gallery1"));
+        AppiumActions.startActivity(PropertiesDataManager.getProperty("mobile_appPackage", PropertiesDataManager.Capability.MOBILE_CAPABILITIES), "io.appium.android.apis.view.Gallery1");
         Assert.assertEquals(ElementActions.getAttribute(AppiumBy.xpath("//android.widget.ImageView[1]"), "focusable"), "true");
         MobileGestures.swipe(AppiumBy.xpath("//android.widget.ImageView[1]"), MobileGestures.Direction.LEFT);
         Assert.assertEquals(ElementActions.getAttribute(AppiumBy.xpath("//android.widget.ImageView[1]"), "focusable"), "false");

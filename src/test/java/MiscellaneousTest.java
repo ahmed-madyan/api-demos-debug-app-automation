@@ -1,13 +1,13 @@
 import actions.AppiumActions;
 import actions.ElementActions;
-import hooks.TestBase;
+import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import mobile_gestures.MobileGestures;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class MiscellaneousTest extends TestBase {
+public class MiscellaneousTest extends DriverInitializer {
     private final By preference = AppiumBy.accessibilityId("Preference");
     private final By preferenceFromXML = AppiumBy.accessibilityId("1. Preferences from XML");
     private final By preferenceDependencies = AppiumBy.accessibilityId("3. Preference dependencies");

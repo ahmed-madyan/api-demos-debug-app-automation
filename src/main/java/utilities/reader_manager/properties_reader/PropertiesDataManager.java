@@ -9,6 +9,9 @@ import java.util.Properties;
 public class PropertiesDataManager {
     private static final String PROJECT_PATH = System.getProperty("user.dir");
     private static final Properties properties = new Properties();
+    private static final String BROWSERSTACK_CAPABILITIES_PATH = ("/src/main/resources/properties_configurations/BrowserStackCapabilities.properties");
+    private static final String EXECUTION_CAPABILITIES_PATH = ("/src/main/resources/properties_configurations/ExecutionPlatform.properties");
+    private static final String MOBILE_CAPABILITIES_PATH = ("/src/main/resources/properties_configurations/MobileCapabilities.properties");
 
     private static Properties readProperties(String filePathContentRoot) {
         try {
@@ -39,12 +42,9 @@ public class PropertiesDataManager {
     public static String getProperty(String key, Capability capability) {
         String filePathContentRoot = null;
         switch (capability) {
-            case BROWSERSTACK_CAPABILITIES ->
-                    filePathContentRoot = ("/src/main/resources/config_properties/BrowserStackCapabilities.properties");
-            case EXECUTION_CAPABILITIES ->
-                    filePathContentRoot = ("/src/main/resources/config_properties/ExecutionPlatform.properties");
-            case MOBILE_CAPABILITIES ->
-                    filePathContentRoot = ("/src/main/resources/config_properties/MobileCapabilities.properties");
+            case BROWSERSTACK_CAPABILITIES -> filePathContentRoot = BROWSERSTACK_CAPABILITIES_PATH;
+            case EXECUTION_CAPABILITIES -> filePathContentRoot = EXECUTION_CAPABILITIES_PATH;
+            case MOBILE_CAPABILITIES -> filePathContentRoot = MOBILE_CAPABILITIES_PATH;
         }
         return readProperties(filePathContentRoot).getProperty(key).trim();
     }
@@ -52,12 +52,9 @@ public class PropertiesDataManager {
     public static void setProperty(String key, String value, Capability capability) {
         String filePathContentRoot = null;
         switch (capability) {
-            case BROWSERSTACK_CAPABILITIES ->
-                    filePathContentRoot = ("/src/main/resources/config_properties/BrowserStackCapabilities.properties");
-            case EXECUTION_CAPABILITIES ->
-                    filePathContentRoot = ("/src/main/resources/config_properties/ExecutionPlatform.properties");
-            case MOBILE_CAPABILITIES ->
-                    filePathContentRoot = ("/src/main/resources/config_properties/MobileCapabilities.properties");
+            case BROWSERSTACK_CAPABILITIES -> filePathContentRoot = BROWSERSTACK_CAPABILITIES_PATH;
+            case EXECUTION_CAPABILITIES -> filePathContentRoot = EXECUTION_CAPABILITIES_PATH;
+            case MOBILE_CAPABILITIES -> filePathContentRoot = MOBILE_CAPABILITIES_PATH;
         }
         try {
             OutputStream fileOutputStream = new FileOutputStream((PROJECT_PATH + filePathContentRoot));
@@ -72,12 +69,9 @@ public class PropertiesDataManager {
     public static void editProperty(String key, String value, Capability capability) {
         String filePathContentRoot = null;
         switch (capability) {
-            case BROWSERSTACK_CAPABILITIES ->
-                    filePathContentRoot = ("/src/main/resources/config_properties/BrowserStackCapabilities.properties");
-            case EXECUTION_CAPABILITIES ->
-                    filePathContentRoot = ("/src/main/resources/config_properties/ExecutionPlatform.properties");
-            case MOBILE_CAPABILITIES ->
-                    filePathContentRoot = ("/src/main/resources/config_properties/MobileCapabilities.properties");
+            case BROWSERSTACK_CAPABILITIES -> filePathContentRoot = BROWSERSTACK_CAPABILITIES_PATH;
+            case EXECUTION_CAPABILITIES -> filePathContentRoot = EXECUTION_CAPABILITIES_PATH;
+            case MOBILE_CAPABILITIES -> filePathContentRoot = MOBILE_CAPABILITIES_PATH;
         }
         try {
             PropertiesConfiguration conf = new PropertiesConfiguration((PROJECT_PATH + filePathContentRoot));

@@ -1,12 +1,12 @@
+import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import actions.ElementActions;
 import mobile_gestures.MobileGestures;
-import hooks.TestBase;
 
-public class PopUpsTest extends TestBase {
+public class PopUpsTest extends DriverInitializer {
     private final By preference = AppiumBy.accessibilityId("Preference");
     private final By preferenceFromXML = AppiumBy.accessibilityId("1. Preferences from XML");
     private final By preferenceDependencies = AppiumBy.accessibilityId("3. Preference dependencies");

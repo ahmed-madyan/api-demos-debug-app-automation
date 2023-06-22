@@ -1,18 +1,18 @@
-package webdriver_waits;
+package driver_waits;
 
-import hooks.DriverManager;
+import driver_manager.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Waits {
-    private static final WebDriverWait webDriverWait = new WebDriverWait(DriverManager.getDriverInstance(), Duration.ofSeconds(50));
+public class ExplicitWaits {
+    private static final WebDriverWait driverWait = new WebDriverWait(DriverManager.getDriverInstance(), Duration.ofMinutes(1));
 
     public static void visibilityOfElementLocated(By elementLocated) {
         try {
-            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(elementLocated));
+            driverWait.until(ExpectedConditions.visibilityOfElementLocated(elementLocated));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -21,7 +21,7 @@ public class Waits {
     public static void elementToBeClickable(By elementLocated) {
         try {
             visibilityOfElementLocated(elementLocated);
-            webDriverWait.until(ExpectedConditions.elementToBeClickable(elementLocated));
+            driverWait.until(ExpectedConditions.elementToBeClickable(elementLocated));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,7 +30,16 @@ public class Waits {
     public static void elementToBeSelected(By elementLocated) {
         try {
             visibilityOfElementLocated(elementLocated);
-            webDriverWait.until(ExpectedConditions.elementToBeSelected(elementLocated));
+            driverWait.until(ExpectedConditions.elementToBeSelected(elementLocated));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void elementToBeUnSelected(By elementLocated) {
+        try {
+            visibilityOfElementLocated(elementLocated);
+            driverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, false));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,7 +48,7 @@ public class Waits {
     public static void elementSelectionStateToBe(By elementLocated, boolean state) {
         try {
             visibilityOfElementLocated(elementLocated);
-            webDriverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, state));
+            driverWait.until(ExpectedConditions.elementSelectionStateToBe(elementLocated, state));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,7 +57,7 @@ public class Waits {
     public static void textToBePresentInElementLocated(By elementLocated, String expectedText) {
         try {
             visibilityOfElementLocated(elementLocated);
-            webDriverWait.until(ExpectedConditions.textToBePresentInElementLocated(elementLocated, expectedText));
+            driverWait.until(ExpectedConditions.textToBePresentInElementLocated(elementLocated, expectedText));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,7 +66,7 @@ public class Waits {
     public static void textToBe(By elementLocated, String expectedText) {
         try {
             visibilityOfElementLocated(elementLocated);
-            webDriverWait.until(ExpectedConditions.textToBe(elementLocated, expectedText));
+            driverWait.until(ExpectedConditions.textToBe(elementLocated, expectedText));
         } catch (Exception e) {
             e.printStackTrace();
         }

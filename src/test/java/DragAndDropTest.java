@@ -1,12 +1,12 @@
+import driver_manager.DriverInitializer;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import actions.ElementActions;
 import mobile_gestures.MobileGestures;
-import hooks.TestBase;
 
-public class DragAndDropTest extends TestBase {
+public class DragAndDropTest extends DriverInitializer {
     private final By views = AppiumBy.accessibilityId("Views");
     private final By dragAndDrop = AppiumBy.accessibilityId("Drag and Drop");
     private final By dragDot_1 = AppiumBy.id("io.appium.android.apis:id/drag_dot_1");

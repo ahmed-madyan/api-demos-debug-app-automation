@@ -1,6 +1,6 @@
 package actions;
 
-import hooks.DriverManager;
+import driver_manager.DriverManager;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
