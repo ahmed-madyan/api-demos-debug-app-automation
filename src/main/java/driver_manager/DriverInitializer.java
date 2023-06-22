@@ -1,15 +1,11 @@
 package driver_manager;
 
-import actions.ElementActions;
+import driver_waits.FluentWaits;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import utilities.reader_manager.properties_reader.PropertiesConfigurations;
-import driver_waits.FluentWaits;
-
-import java.time.Duration;
 
 public class DriverInitializer {
     private static AndroidDriver androidDriver;
@@ -27,7 +23,6 @@ public class DriverInitializer {
             }
         }
         FluentWaits.visibilityOfElementLocated(AppiumBy.id("android:id/action_bar_container"));
-//        DriverManager.getDriverInstance().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @AfterClass(alwaysRun = true)
