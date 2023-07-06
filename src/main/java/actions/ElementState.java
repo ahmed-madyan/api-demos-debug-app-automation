@@ -6,145 +6,145 @@ import driver_waits.FluentWaits;
 public class ElementState {
 
     public static boolean isCheckable(By elementLocated) {
-        boolean checkable = false;
+        boolean isCheckable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.getAttribute(elementLocated, "checkable").equals("true")) {
-                checkable = true;
+                isCheckable = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return checkable;
+        return isCheckable;
     }
 
     public static boolean isChecked(By elementLocated) {
-        boolean checked = false;
+        boolean isChecked = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.getAttribute(elementLocated, "checked").equals("true")) {
-                checked = true;
+                isChecked = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return checked;
+        return isChecked;
     }
 
     public static boolean isClickable(By elementLocated) {
-        boolean clickable = false;
+        boolean isClickable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.getAttribute(elementLocated, "clickable").equals("true")) {
-                clickable = true;
+                isClickable = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return clickable;
+        return isClickable;
     }
 
     public static boolean isEnabled(By elementLocated) {
-        boolean enabled = false;
+        boolean isEnabled = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).isEnabled()) {
-                enabled = true;
+                isEnabled = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return enabled;
+        return isEnabled;
     }
 
     public static boolean isFocusable(By elementLocated) {
-        boolean focusable = false;
+        boolean isFocusable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("focusable").equals("true")) {
-                focusable = true;
+                isFocusable = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return focusable;
+        return isFocusable;
     }
 
     public static boolean isFocused(By elementLocated) {
-        boolean focused = false;
+        boolean isFocused = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("focused").equals("true")) {
-                focused = true;
+                isFocused = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return focused;
+        return isFocused;
     }
 
     public static boolean isLongClickable(By elementLocated) {
-        boolean longClickable = false;
+        boolean isLongClickable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("long-clickable").equals("true")) {
-                longClickable = true;
+                isLongClickable = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return longClickable;
+        return isLongClickable;
     }
 
     public static boolean isPassword(By elementLocated) {
-        boolean password = false;
+        boolean isPassword = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("password").equals("true")) {
-                password = true;
+                isPassword = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return password;
+        return isPassword;
     }
 
     public static boolean isScrollable(By elementLocated) {
-        boolean scrollable = false;
+        boolean isScrollable = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).getAttribute("scrollable").equals("true")) {
-                scrollable = true;
+                isScrollable = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return scrollable;
+        return isScrollable;
     }
 
     public static boolean isSelected(By elementLocated) {
-        boolean selected = false;
+        boolean isSelected = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).isSelected()) {
-                selected = true;
+                isSelected = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return selected;
+        return isSelected;
     }
 
     public static boolean isDisplayed(By elementLocated) {
-        boolean displayed = false;
+        boolean isDisplayed = false;
         try {
             FluentWaits.visibilityOfElementLocated(elementLocated);
             if (ElementActions.findElement(elementLocated).isDisplayed()) {
-                displayed = true;
+                isDisplayed = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return displayed;
+        return isDisplayed;
     }
 }

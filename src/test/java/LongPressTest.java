@@ -1,11 +1,10 @@
+import assertions.Assert;
 import driver_manager.DriverInitializer;
 import driver_manager.DriverManager;
 import io.appium.java_client.AppiumBy;
-import org.openqa.selenium.By;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-import actions.ElementActions;
 import mobile_gestures.MobileGestures;
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
 
 
 public class LongPressTest extends DriverInitializer {
@@ -19,13 +18,13 @@ public class LongPressTest extends DriverInitializer {
 
     @Test
     public void test_LongPress() {
-        Assert.assertTrue(ElementActions.findElement(views).isDisplayed());
+        Assert.assertElementDisplayed(views);
         MobileGestures.click(views);
-        Assert.assertTrue(ElementActions.findElement(expandableLists).isDisplayed());
+        Assert.assertElementDisplayed(expandableLists);
         MobileGestures.click(expandableLists);
-        Assert.assertTrue(ElementActions.findElement(customAdapter).isDisplayed());
+        Assert.assertElementDisplayed(customAdapter);
         MobileGestures.click(customAdapter);
         MobileGestures.longClick(DriverManager.getDriverInstance(), peopleNames, 2000);
-        Assert.assertTrue(ElementActions.findElement(widgetListView).isDisplayed());
+        Assert.assertElementDisplayed(widgetListView);
     }
 }
