@@ -1,5 +1,6 @@
 package actions;
 
+import driver_manager.DriverManager;
 import org.openqa.selenium.By;
 import driver_waits.FluentWaits;
 
@@ -138,8 +139,7 @@ public class ElementState {
     public static boolean isDisplayed(By elementLocated) {
         boolean isDisplayed = false;
         try {
-            FluentWaits.visibilityOfElementLocated(elementLocated);
-            if (ElementActions.findElement(elementLocated).isDisplayed()) {
+            if (DriverManager.getDriverInstance().findElement(elementLocated).isDisplayed()) {
                 isDisplayed = true;
             }
         } catch (Exception e) {
